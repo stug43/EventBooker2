@@ -42,6 +42,7 @@ group :development, :test do
 	gem 'letter_opener'
 	gem 'rspec-rails'
 	gem 'factory_bot_rails'
+	gem 'nyan-cat-formatter'
 end
 
 group :development do

@@ -14,6 +14,8 @@ require 'time'
 
 	private
 	def future_start_date?
-		start_date > Time.now
+		if start_date
+			start_date > Time.now.to_date
+		end
 	end
 end

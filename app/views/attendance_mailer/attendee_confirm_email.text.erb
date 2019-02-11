@@ -1,4 +1,6 @@
 Bonjour <%= @attendance.event.admin.first_name %>, 
 <%= @attendance.attendee.first_name + " " + @attendance.attendee.last_name %> vient de régler ses droits de participation à votre évènement <%= @attendance.event.title %>.
 La liste des invités est donc à ce jour :
-<%= @attendance.event.attendees.each {|k| k.first_name + " " + k.last_name } %>
+<% @attendance.event.attendees.each do |k| %> 
+<%=	k.first_name + " " + k.last_name  %>
+<% end %>
