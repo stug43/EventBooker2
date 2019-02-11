@@ -10,4 +10,4 @@ bundle : 2.0.1</p>
 <h2>Authors :</h2>
 <p>Auguste_ng</p>
 <h2>Entertainment :</h2>
-<p><a href="https://www.youtube.com/watch?v=FGV7uOprYiU">go on youtube bruh</a></p>
+<p><a href="https://www.youtube.com/watch?v=FGV7uOprYiU"><sub>go on youtube bruh</sub></a></p>
