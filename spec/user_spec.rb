@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+require 'time'
 RSpec.describe User, type: :model do
 
   before(:each) do 
@@ -44,14 +44,16 @@ RSpec.describe User, type: :model do
 
     describe "events" do
       it "should have_many events" do
-        event = Event.create(admin: @user, start_date: (Time.now+6000).to_date, title: "titre de l'evenement", price: 280, location: "Toulouse", duration: 256)
+				date = (Time.now + 6000).to_date
+        event = Event.create(admin: @user, start_date: date, title: "titre de l'evenement", price: 280, location: "Toulouse", duration: 256, description: "description de l'évènement à la solde lqsoiuhfskuvihldifuhvqldiuvhql l'évènement à la solde lqsoiuhfskuvihldifuhvqldiuvhql")
         expect(@user.events.include?(event)).to eq(true)
       end
     end
 
 		describe "attendees" do
       it "should have_many attendees" do
-        event = Event.create(admin: @user, start_date: (Time.now+6000).to_date, title: "titre de l'evenement", price: 280, location: "Toulouse", duration: 256)
+				date = (Time.now + 6000).to_date
+        event = Event.create(admin: @user, start_date: date, title: "titre de l'evenement", price: 280, location: "Toulouse", duration: 256, description: "description de l'évènement à la solde lqsoiuhfskuvihldifuhvqldiuvhql l'évènement à la solde lqsoiuhfskuvihldifuhvqldiuvhql")
 				attendance = Attendance.create(attendee: @user, event: event, stripe_customer_id: "okokook")
         expect(@user.attendees.include?(@user)).to eq(true)
       end
