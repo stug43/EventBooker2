@@ -1,0 +1,19 @@
+<h1 class="display-4 offset-1 pb-5">Liste des evenements de la ville</h1>
+<% Event.all.each do |event| %>
+<div class="list-group col-4 offset-2">
+<%= link_to event_path(event), class: "border-dark mb-4", role: "button" do %>
+<div class="list-group-item list-group-item-action">
+	<div class="d-flex w-100 justify-content-between">
+  <h2 class="display-6"><%= event.title %></h2>
+	<small><%= event.start_date.strftime('%F') %></small>
+	</div>
+  <p class="mb-1 text-truncate d-block"><%= event.description %></p>
+  <hr class="my-4">
+	<div class="d-flex w-100 justify-content-between">
+  <small class="text-left"><%= event.admin.email %></small>
+	<small class="text-right"><%= "US $" + event.price.to_s %></small>
+	</div>
+</div>
+<% end %>
+</div>
+<% end %>

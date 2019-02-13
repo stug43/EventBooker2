@@ -1,0 +1,33 @@
+<h1>OMG forms are boring</h1>
+<div class="col-4 offset-1">
+<form action='/events' method='POST'>
+<div class="form-group">
+<label class="ml-3">Title</label>
+<input type="text" class="form-control" name="title" />
+</div>
+<div class="form-group">
+<label class="ml-3">Location</label>
+<input type="text" class="form-control" name="location" />
+</div>
+<div class="form-group">
+<label class="ml-3">Start date (please, format : yyyy-mm-dd hh:mm)</label>
+<input type="text" class="form-control" name="start_date" />
+</div>
+<div class="form-group">
+<label class="ml-3">Duration</label>
+<input type="text" class="form-control" name="duration" />
+</div>
+<div class="form-group">
+<label class="ml-3">Price</label>
+<input type="text" class="form-control" name="price" />
+</div>
+<input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+<div class="form-group">
+<label class="ml-3">Description</label>
+<textarea type="text" class="form-control row-3" name="description" ></textarea>
+</div>
+<div class="form-group">
+<input type="submit" value="Soumission ☹️" class="btn btn-primary" />
+</div>
+</form>
+</div>

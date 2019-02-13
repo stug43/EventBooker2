@@ -1,0 +1,12 @@
+<div class="container offset-1">
+<h1>Welcome on your personnal space</h1>
+<h2><%= current_user.first_name + " " + current_user.last_name %></h2>
+<p><%= current_user.description %><br />
+<%= current_user.email %></p>
+<%= link_to "éditer ses infos", edit_user_registration_path %>
+<ul class="list-group list-group-flush col-3">
+<% current_user.events.each do |event| %>
+  <li class="list-group-item d-flex justify-content-between"><span><%= event.title.capitalize %></span><span><%= link_to event_path(event) do %>&#8706;&#8706;&#8706;<% end %></li>
+<% end %>
+</ul>
+</div>

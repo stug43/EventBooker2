@@ -1,0 +1,18 @@
+<h1><%= @event.title %></h1>
+<h2>description de l'évènement : <%= @event.description %></h2>
+<h2>price : <%= @event.price %></h2>
+<h2>location : <%= @event.location %></h2>
+<h2>admin : <%= @event.admin.first_name + " " + @event.admin.last_name %></h2>
+<h2>contact : <%= @event.admin.email %></h2>
+<h2><%= @event.attendees.count %> invités</h2>
+<h2><%= @event.duration.to_s + "minutes" %></h2>
+<br />
+<p>
+<% if ((current_user != @event.admin)&&(!@event.attendees.include?(current_user))) %>
+<%= link_to "Rejoindre l'évènement", new_attendance_path %>
+<% end %>
+</p>
+<br />
+<% if current_user == @event.admin %>
+<%= link_to "éditer l'évènement", edit_event_path(@event) %>
+<% end %>

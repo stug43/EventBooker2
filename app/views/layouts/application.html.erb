@@ -4,10 +4,58 @@
     <title>NgEventbooker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">		
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+	<ul class="nav nav-tabs">
+  <li class="nav-item dropdown offset-1">
+    <a class="nav-link dropdown-toggle <% if current_user %><%= active_class(user_path(current_user)) + " " + active_class(edit_user_registration_path(current_user)) %><% end %>" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+<% if current_user %>
+logged
+<% else %>
+login
+<% end %>
+</a>
+    <div class="dropdown-menu">
+			<% if current_user %>
+			<%= link_to destroy_user_session_path, { class: "dropdown-item", method: :delete } do %>
+				Log out
+			<% end %>
+      <div class="dropdown-divider"></div>
+      <%= link_to user_path(current_user), { class: "dropdown-item" } do %>
+			<strong><%= current_user.first_name %></strong><br />
+			View profile
+			<% end %>
+			<% else %>
+      <a class="dropdown-item" href="/users/sign_up">Sign up</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="/users/sign_in">Login</a>
+			<% end %>
+    </div>
+  <li class="nav-item">
+    <%= link_to root_path, { class: "nav-link #{active_class(root_path)}" } do %>
+			Home
+		<% end %>
+  </li>
+	<li>
+<% if current_user %>
+<%= link_to new_event_path, { class: "nav-link #{active_class(new_event_path)}" } do %>
+      Créer un Event
+    <% end %>
+<% end %>
+  </li>
+</li>
+</ul>
+
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
 
   <body>
     <%= yield %>
