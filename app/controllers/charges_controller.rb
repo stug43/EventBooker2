@@ -4,7 +4,7 @@ end
 
 def create
   # Amount in cents
-  @amount = params[:price]
+  @amount = 500
 
   customer = Stripe::Customer.create(
     :email => params[:stripeEmail],
@@ -22,4 +22,5 @@ rescue Stripe::CardError => e
   flash[:error] = e.message
   redirect_to new_charge_path
 end
+
 end

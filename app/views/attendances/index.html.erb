@@ -1,0 +1,7 @@
+<h1>Guestlist</h1>
+<%= link_to "éditer l'évènement", edit_event_path(@event) %>
+<ul class="list-group">
+<% @event.attendees.each do |attendee| %>
+<li class="list-group-item"><%= attendee.full_name %></li>
+<% end %>
+</ul>

@@ -8,11 +8,14 @@
 <h2><%= @event.duration.to_s + "minutes" %></h2>
 <br />
 <p>
+<% if current_user %>
 <% if ((current_user != @event.admin)&&(!@event.attendees.include?(current_user))) %>
-<%= link_to "Rejoindre l'évènement", new_attendance_path %>
+<%= link_to "Rejoindre l'évènement", new_event_attendance_path(@event) %>
 <% end %>
 </p>
 <br />
 <% if current_user == @event.admin %>
+<%= link_to "guest list", event_attendances_path(@event) %>
 <%= link_to "éditer l'évènement", edit_event_path(@event) %>
+<% end %>
 <% end %>

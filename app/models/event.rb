@@ -8,7 +8,7 @@ require 'time'
 	validate :future_start_date?
 	validates :duration, presence: true, numericality: { only_integer: true, greater_than: 10 }
 	validates :title, presence: true, length: { minimum: 5, maximum: 70 }
-	validates :price, presence: true, numericality: { only_integer: true }
+	validates :price, presence: true, numericality: { only_integer: true, less_than: 1000}
 	validates :location, presence: true
 	validates :description, presence: true, length: { minimum: 30 }
 

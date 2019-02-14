@@ -1,2 +1,23 @@
-<h1>Attendances#new</h1>
-<p>Find me in app/views/attendances/new.html.erb</p>
+<h1>Join the team</h1>
+<p><%= @event.description %><br />
+date : <%= @event.start_date.strftime("%F") %><br />
+at : <%= @event.start_date.strftime("%T") %></p>
+<br />
+<%= form_tag event_attendances_path(@event), method: :post do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: $<%= (@striprice/100) %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="<%= @striprice %>"
+          data-locale="auto"></script>
+<% end %>
