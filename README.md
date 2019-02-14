@@ -1,4 +1,6 @@
 <h1>Event Booker</h1>
+<h2>Statut</h2>
+<p>En production :) : <sub>https://ng-eventbrite.herokuapp.com/</sub></p>
 <h2>Versions :</h2>
 <p>ruby : 2.5.1<br />
 rails : 5.2.2<br />
